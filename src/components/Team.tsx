@@ -9,14 +9,19 @@ import {
   } from "@/components/ui/carousel"
   import { FaLinkedinIn, FaInstagram, FaFacebookF, FaTwitter } from 'react-icons/fa6'
 import TeamData from '../../team_data'
+import Autoplay from "embla-carousel-autoplay"
 
 export default function Team() {
+  const plugin = React.useRef(
+    Autoplay({ delay: 6000, stopOnInteraction: false })
+  )
   return (
     <div className='py-24 px-[180px] max-mobile:px-6   w-full'>
          <Carousel
       opts={{
         align: "start",
       }}
+      plugins={[plugin.current]}
       className="w-full px-[120px] max-mobile:px-6 "
     >
       <CarouselContent>
